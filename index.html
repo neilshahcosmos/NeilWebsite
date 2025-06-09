@@ -14,8 +14,33 @@
     <title>Hello, World!</title>
 </head>
 <body>
-    <div id="content">
-    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=25Acz8J3V6xaDTS9?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div class="content">
+        <form id="passwordForm">
+            <div>Enter Password 
+              <span id="password-input">[ <input type="password" name="sipassword" id="sipassword" maxlength="10" autofocus> ]</span>
+            </div>
+        </form>
     </div>
+
+    <script>
+    const passwordForm = document.getElementById('passwordForm');
+    const passwordInput = document.getElementById('sipassword');
+    const content_div = document.querySelector('.content');
+    const id = "dQw4w9WgXcQ";
+    
+    passwordInput.addEventListener("keypress", (e) => {
+        passwordForm.remove();
+        
+        let iframe = document.createElement('iframe');
+        iframe.setAttribute('src', `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&controls=0&showinfo=0`);
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+        iframe.setAttribute('allowfullscreen', '');
+        iframe.setAttribute('width', '1280');
+        iframe.setAttribute('height', '620');
+        
+        content_div.appendChild(iframe);
+    });
+    </script>
 </body>
 </html>
